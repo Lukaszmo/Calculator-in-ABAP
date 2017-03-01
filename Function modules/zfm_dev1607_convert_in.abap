@@ -9,8 +9,13 @@ FUNCTION zfm_dev1607_convert_in.
   DATA: exref TYPE REF TO cx_root,
         msgtxt TYPE string.
 
+  IF im_input < 0.
+    SHIFT im_input LEFT DELETING LEADING '- '.
+    CONCATENATE im_input '-' INTO im_input.
+  ENDIF.
 
   TRY.
+
       ex_num = im_input.
 
     CATCH cx_sy_conversion_no_number INTO exref.
@@ -18,9 +23,5 @@ FUNCTION zfm_dev1607_convert_in.
       MESSAGE msgtxt TYPE 'E'.
 
   ENDTRY.
-
-
-
-
 
 ENDFUNCTION.
