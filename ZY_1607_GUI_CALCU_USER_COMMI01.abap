@@ -95,8 +95,9 @@ MODULE user_command_0100 INPUT.
         IMPORTING
           ex_num   = lv_num1.
 
+
       lv_operation = '+'.
-      CONCATENATE input1 lv_operation INTO input2.
+      CONCATENATE  input1 lv_operation INTO input2.
       CLEAR input1.
 
 
@@ -137,7 +138,6 @@ MODULE user_command_0100 INPUT.
       CLEAR input1.
 
     WHEN 'FUNCT_FACTORIAL'.
-      DATA lv_fact TYPE i.
 
       CALL FUNCTION 'ZFM_DEV1607_CONVERT_IN'
         EXPORTING
@@ -150,7 +150,6 @@ MODULE user_command_0100 INPUT.
       CALL FUNCTION 'ZFM_DEV1607_FACTORIAL'
         EXPORTING
           im_num1   = lv_num1
-          im_fact   = lv_fact
         IMPORTING
           ex_result = result.
 
@@ -214,6 +213,7 @@ MODULE user_command_0100 INPUT.
           c_value = char.
 
       input1 = char.
+
 
     WHEN OTHERS.
 
